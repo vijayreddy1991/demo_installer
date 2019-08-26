@@ -1,6 +1,6 @@
 provider "aws" {
-  access_key  = "$int_keys_accessKey" #"${var.accessKey}"
-  secret_key  = "$int_keys_SecretKey" #"${var.secretKey}"
+  access_key  = "${var.int_keys_accessKey}"
+  secret_key  = "${var.int_keys_SecretKey}"
   region      = "us-east-2"
 }
 
