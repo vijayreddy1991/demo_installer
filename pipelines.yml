@@ -84,8 +84,8 @@ pipelines:
             - pwd
             - echo $res_repo_vijay_resourcePath
             - pushd $res_repo_vijay_resourcePath
-            - echo "${var.accessKey}"
-            - echo "${var.secretKey}"
+            - echo "$accessKey"
+            - echo "$secretKey"
             - popd
             - pwd
             - ls -la
