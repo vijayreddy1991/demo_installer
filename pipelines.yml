@@ -42,7 +42,7 @@ pipelines:
             - name: repo_vijay
           runtime:       
             type: host      #<image/host>
-            image:
+#             image:
               custom:
                 name: drydock/u16node
                 tag: master
