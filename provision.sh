@@ -1,6 +1,8 @@
+popd
 mkdir terraform
 pwd
-cd terraform
+ls -la
+pushd terraform
 sudo apt-get update
 sudo apt-get install wget unzip
 wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
@@ -10,3 +12,4 @@ terraform init
 pwd
 terraform apply -auto-approve
 terraform destroy -auto-approve
+popd
