@@ -79,10 +79,10 @@ pipelines:
         execution:
           onExecute:
             - echo "test1"  
-            - echo "$vijay"
-            - printenv
+#             - echo "$vijay"
+#             - printenv
             - pwd
-            - echo $res_repo_vijay_resourcePath
+#             - echo $res_repo_vijay_resourcePath
 #             - pushd $res_repo_vijay_resourcePath
 #             - echo "$int_keys_SecretKey"
 #             - echo "$secretKey"
@@ -94,11 +94,9 @@ pipelines:
 #             - sudo unzip ./terraform_0.11.13_linux_amd64.zip -d /usr/local/bin/
 #             - terraform --version
 #             - terraform init
-#             - pushd $res_repo_vijay_resourcePath
+            - pushd $res_repo_vijay_resourcePath
             - chmod 777 provision.sh
             - pwd
-#             - terraform apply -auto-approve
-#             - terraform destroy -auto-approve
             - ./provision.sh
                 
       - name: test2
