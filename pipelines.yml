@@ -64,7 +64,7 @@ pipelines:
 #             - name: myOutputResource1  
           runtime:       
             type: host      #<image/host>
-            image:
+#             image:
 #               auto:
 #                 language: go
 #                 versions:
