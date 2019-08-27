@@ -1,3 +1,4 @@
+pushd $res_repo_vijay_resourcePath
 mkdir terraform
 path=($PWD)
 ls -la
