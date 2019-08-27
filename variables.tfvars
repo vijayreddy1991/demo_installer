@@ -1,7 +1,2 @@
-variable "accessKey" {
-  description = "AWS access key"
-}
-
-variable "secretKey" {
-  description = "AWS secert access key"
-}
+access_Key  = "${var.int_keys_accessKey}"	  
+secret_Key  = "${var.int_keys_SecretKey}"
