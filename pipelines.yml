@@ -93,7 +93,7 @@ pipelines:
             - sudo unzip ./terraform_0.11.13_linux_amd64.zip -d /usr/local/bin/
             - terraform --version
             - terraform init
-            - - pushd $res_repo_vijay_resourcePath
+            - pushd $res_repo_vijay_resourcePath
             - pwd
             - terraform apply -auto-approve -var-file="variables.tfvars"
             - popd
