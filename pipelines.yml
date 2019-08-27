@@ -41,8 +41,8 @@ pipelines:
           inputResources:
             - name: repo_vijay
           runtime:       
-            type:      #<image/host>
-#             image:
+            type: image     #<image/host>
+            image:
               custom:
                 name: drydock/u16node
                 tag: master
