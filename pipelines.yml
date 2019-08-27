@@ -56,6 +56,7 @@ pipelines:
 #             - echo "$vijay"
 #             - printenv
             - pwd
+            - terraform --version
 #             - echo $res_repo_vijay_resourcePath
 #             - pushd $res_repo_vijay_resourcePath
 #             - echo "$int_keys_SecretKey"
@@ -68,10 +69,10 @@ pipelines:
 #             - sudo unzip ./terraform_0.11.13_linux_amd64.zip -d /usr/local/bin/
 #             - terraform --version
 #             - terraform init
-            - pushd $res_repo_vijay_resourcePath
-            - chmod 777 provision.sh
-            - pwd
-            - ./provision.sh
+#             - pushd $res_repo_vijay_resourcePath
+#             - chmod 777 provision.sh
+#             - pwd
+#             - ./provision.sh
                 
       - name: test2
         type: Bash
