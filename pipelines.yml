@@ -41,7 +41,7 @@ pipelines:
           inputResources:
             - name: repo_vijay
           runtime:       
-            type: host      #<image/host>
+            type:      #<image/host>
 #             image:
               custom:
                 name: drydock/u16node
@@ -181,7 +181,7 @@ pipelines:
                 language: go
                 versions:
                   - 1.12.5
-#               custom:
+# e
 #                 name: drydock/u16node
 #                 tag: master
 #                 registry: art
