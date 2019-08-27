@@ -86,7 +86,6 @@ pipelines:
             - pushd $res_repo_vijay_resourcePath
 #             - echo "$int_keys_SecretKey"
             - echo "$secretKey"
-            - popd
             - pwd
             - ls -la
             - sudo apt-get update
