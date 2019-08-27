@@ -23,25 +23,6 @@ resources:
       
 pipelines:
   - name: jfrog_pipeline
-#     configuration:
-#       environmentVariables:
-#         readOnly:
-#           ENV1: value1
-#           ENV2: value2    
-#       runtime:       
-#         type: image       #<image/host>
-#         image:
-#           auto:
-#             language: go
-#             versions:
-#               - 1.12.5
-#           custom:
-#             name: drydock/u18node
-#             tag: master
-#             registry: <private custom image registry integration>
-#             sourceRepository: <artifactory source repo>
-#             region: <aws ECR region> 
-#             options:
     steps:
       - name: test1
         type: Bash
@@ -59,16 +40,9 @@ pipelines:
 #             - name: artifactoryIntegration  
           inputResources:
             - name: repo_vijay
-              trigger: true    # default true
-#           outputResources:
-#             - name: myOutputResource1  
           runtime:       
             type: host      #<image/host>
-#             image:
-#               auto:
-#                 language: go
-#                 versions:
-#                   - 1.12.5
+            image:
               custom:
                 name: drydock/u16node
                 tag: master
