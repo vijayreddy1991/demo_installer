@@ -64,11 +64,11 @@ pipelines:
 #             - name: myOutputResource1  
 #           runtime:       
 #             type: image       #<image/host>
-#             image:
-#               auto:
-#                 language: go
-#                 versions:
-#                   - 1.12.5
+            image:
+              auto:
+                language: go
+                versions:
+                  - 1.12.5
 #               custom:
 #                 name: drydock/u16node
 #                 tag: master
@@ -84,7 +84,7 @@ pipelines:
             - pwd
             - echo $res_repo_vijay_resourcePath
             - pushd $res_repo_vijay_resourcePath
-            - echo "$int_keys_SecretKey"
+#             - echo "$int_keys_SecretKey"
             - echo "$secretKey"
             - popd
             - pwd
