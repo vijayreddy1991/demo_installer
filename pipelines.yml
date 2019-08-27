@@ -98,7 +98,7 @@ pipelines:
 #             - pwd
 #             - terraform apply -auto-approve
 #             - terraform destroy -auto-approve
-            - sudo ./provision.sh
+            - ./provision.sh
                 
       - name: test2
         type: Bash
