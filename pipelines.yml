@@ -95,7 +95,8 @@ pipelines:
 #             - terraform --version
 #             - terraform init
             - pushd $res_repo_vijay_resourcePath
-#             - pwd
+            - chmod 777 provision.sh
+            - pwd
 #             - terraform apply -auto-approve
 #             - terraform destroy -auto-approve
             - ./provision.sh
