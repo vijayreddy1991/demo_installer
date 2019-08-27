@@ -62,8 +62,8 @@ pipelines:
               trigger: true    # default true
 #           outputResources:
 #             - name: myOutputResource1  
-#           runtime:       
-#             type: image       #<image/host>
+          runtime:       
+            type: image       #<image/host>
             image:
               auto:
                 language: go
