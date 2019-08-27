@@ -63,15 +63,15 @@ pipelines:
 #           outputResources:
 #             - name: myOutputResource1  
           runtime:       
-            type: image       #<image/host>
+            type: host      #<image/host>
             image:
-              auto:
-                language: go
-                versions:
-                  - 1.12.5
-#               custom:
-#                 name: drydock/u16node
-#                 tag: master
+#               auto:
+#                 language: go
+#                 versions:
+#                   - 1.12.5
+              custom:
+                name: drydock/u16node
+                tag: master
 #                 registry: art
 #                 sourceRepository: docker # required if registry is artifactory
 #                 region: <string> # required if registry is AWS
