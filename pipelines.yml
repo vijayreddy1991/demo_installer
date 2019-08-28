@@ -63,11 +63,11 @@ pipelines:
 #             - echo "$secretKey"
             - pwd
 #             - ls -la
-            - terraform init
+#             - terraform init
 #             - pushd $res_repo_vijay_resourcePath
 #             - chmod 777 provision.sh
 #             - pwd
-#             - ./provision.sh
+            - ./provision.sh
                 
       - name: test2
         type: Bash
