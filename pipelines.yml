@@ -59,11 +59,16 @@ pipelines:
 #             - pushd $res_repo_vijay_resourcePath
             - pwd
 #             - ls -la
-            - terraform init
+#             - terraform init
             - pushd $res_repo_vijay_resourcePath
-            - chmod 777 provision.sh
-            - ./provision.sh
+            - terraform init
+            - terraform destroy -auto-approve -var-file="/keys.tf"
+            - terraform destroy -auto-approve -var-file="/keys.tf"
             - popd
+#             - pushd $res_repo_vijay_resourcePath
+#             - chmod 777 provision.sh
+#             - ./provision.sh
+#             - popd
                 
 #       - name: test2
 #         type: Bash
