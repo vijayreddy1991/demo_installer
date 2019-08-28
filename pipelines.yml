@@ -65,7 +65,7 @@ pipelines:
             - pushd $res_repo_vijay_resourcePath
             - terraform init            
             - ls -la
-            - terraform plan -var-file="$PWD/keys.tfvar"
+#             - terraform plan -var-file="$PWD/keys.tfvar"
             - PWD=$(pwd)
             - terraform apply -auto-approve -var-file="$PWD/keys.tfvar"
             - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
