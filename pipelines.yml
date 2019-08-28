@@ -66,6 +66,7 @@ pipelines:
             - ls -la
 #             - terraform plan -var-file="$PWD/keys.tfvar"
             - PWD=$(pwd)
+            - replace_envs $PWD/keys.tfvar
             - terraform apply -auto-approve -var-file="$PWD/keys.tfvar"
             - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
             - popd
