@@ -59,7 +59,7 @@ pipelines:
 #             - pushd $res_repo_vijay_resourcePath
             - pwd
 #             - ls -la
-#             - terraform init
+            - terraform init
             - pushd $res_repo_vijay_resourcePath
             - terraform init
             - terraform destroy -auto-approve -var-file="/keys.tf"
