@@ -62,6 +62,7 @@ pipelines:
             - terraform init
             - pushd $res_repo_vijay_resourcePath
 #             - terraform init
+            - echo "$pwd"
             - terraform apply -auto-approve -var-file="$pwd/keys.tf"
             - terraform destroy -auto-approve -var-file="$pwd/keys.tf"
             - popd
