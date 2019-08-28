@@ -65,8 +65,7 @@ pipelines:
 #             - ls -la
 #             - terraform init
             - pushd $res_repo_vijay_resourcePath
-#             - chmod 777 provision.sh
-#             - pwd
+            - chmod 777 provision.sh
             - ./provision.sh
             - popd
                 
