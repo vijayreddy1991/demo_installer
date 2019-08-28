@@ -1,2 +1,2 @@
-accessKey="$int_keys_accessKey"	  
-secretKey="$int_keys_SecretKey"
+accessKey="$int_aws_keys_accessKeyId"	  
+secretKey="$int_aws_keys_secretAccessKey"
