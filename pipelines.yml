@@ -64,10 +64,11 @@ pipelines:
             - pwd
 #             - ls -la
 #             - terraform init
-#             - pushd $res_repo_vijay_resourcePath
+            - pushd $res_repo_vijay_resourcePath
 #             - chmod 777 provision.sh
 #             - pwd
             - ./provision.sh
+            - popd
                 
       - name: test2
         type: Bash
