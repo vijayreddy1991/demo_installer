@@ -69,122 +69,122 @@ pipelines:
             - ./provision.sh
             - popd
                 
-      - name: test2
-        type: Bash
-        configuration:
-          affinityGroup: debain 
-          priority: 0
-          timeoutSeconds: 50000
-#           nodePool: ubuntu_16
-          chronological: true
-          environmentVariables:
-            env1: value1
-            env2: value2
-#           integrations:
-#             - name: dockerHubIntegration
-#             - name: artifactoryIntegration  
-          inputSteps:
-            - name: test1
-#           inputResources:
-#             - name: vijay_git
-#               trigger: true    # default true
-#           outputResources:
-#             - name: myOutputResource1  
-          runtime:       
-            type: image       #<image/host>
-            image:
-              auto:
-                language: go
-                versions:
-                  - 1.12.5
-#               custom:
-#                 name: drydock/u16node
-#                 tag: master
-#                 registry: art
-#                 sourceRepository: docker # required if registry is artifactory
-#                 region: <string> # required if registry is AWS
-#                 options:
-        execution:
-          onExecute:
-            - echo "test2"  
-            - printenv
+#       - name: test2
+#         type: Bash
+#         configuration:
+#           affinityGroup: debain 
+#           priority: 0
+#           timeoutSeconds: 50000
+# #           nodePool: ubuntu_16
+#           chronological: true
+#           environmentVariables:
+#             env1: value1
+#             env2: value2
+# #           integrations:
+# #             - name: dockerHubIntegration
+# #             - name: artifactoryIntegration  
+#           inputSteps:
+#             - name: test1
+# #           inputResources:
+# #             - name: vijay_git
+# #               trigger: true    # default true
+# #           outputResources:
+# #             - name: myOutputResource1  
+#           runtime:       
+#             type: image       #<image/host>
+#             image:
+#               auto:
+#                 language: go
+#                 versions:
+#                   - 1.12.5
+# #               custom:
+# #                 name: drydock/u16node
+# #                 tag: master
+# #                 registry: art
+# #                 sourceRepository: docker # required if registry is artifactory
+# #                 region: <string> # required if registry is AWS
+# #                 options:
+#         execution:
+#           onExecute:
+#             - echo "test2"  
+#             - printenv
 
-      - name: test3
-        type: Bash
-        configuration:
-          affinityGroup: rpm
-          priority: 0
-          timeoutSeconds: 50000
-#           nodePool: ubuntu_16
-          chronological: true
-          environmentVariables:
-            env1: value1
-            env2: value2
-#           integrations:
-#             - name: dockerHubIntegration
-#             - name: artifactoryIntegration  
-          inputSteps:
-            - name: test2
-#           inputResources:
-#             - name: vijay_git
-#               trigger: true    # default true
-#           outputResources:
-#             - name: myOutputResource1  
-          runtime:       
-            type: image       #<image/host>
-            image:
-              auto:
-                language: go
-                versions:
-                  - 1.12.5
-#               custom:
-#                 name: drydock/u16node
-#                 tag: master
-#                 registry: art
-#                 sourceRepository: docker # required if registry is artifactory
-#                 region: <string> # required if registry is AWS
-#                 options:
-        execution:
-          onExecute:
-            - echo "Test3"
-            - printenv
+#       - name: test3
+#         type: Bash
+#         configuration:
+#           affinityGroup: rpm
+#           priority: 0
+#           timeoutSeconds: 50000
+# #           nodePool: ubuntu_16
+#           chronological: true
+#           environmentVariables:
+#             env1: value1
+#             env2: value2
+# #           integrations:
+# #             - name: dockerHubIntegration
+# #             - name: artifactoryIntegration  
+#           inputSteps:
+#             - name: test2
+# #           inputResources:
+# #             - name: vijay_git
+# #               trigger: true    # default true
+# #           outputResources:
+# #             - name: myOutputResource1  
+#           runtime:       
+#             type: image       #<image/host>
+#             image:
+#               auto:
+#                 language: go
+#                 versions:
+#                   - 1.12.5
+# #               custom:
+# #                 name: drydock/u16node
+# #                 tag: master
+# #                 registry: art
+# #                 sourceRepository: docker # required if registry is artifactory
+# #                 region: <string> # required if registry is AWS
+# #                 options:
+#         execution:
+#           onExecute:
+#             - echo "Test3"
+#             - printenv
 
-      - name: test4
-        type: Bash
-        configuration:
-          affinityGroup: rpm
-          priority: 0
-          timeoutSeconds: 50000
-#           nodePool: ubuntu_16
-          chronological: true
-          environmentVariables:
-            env1: value1
-            env2: value2
-#           integrations:
-#             - name: dockerHubIntegration
-#             - name: artifactoryIntegration  
-          inputSteps:
-            - name: test3
-#           inputResources:
-#             - name: vijay_git
-#               trigger: true    # default true
-#           outputResources:
-#             - name: myOutputResource1  
-          runtime:       
-            type: image       #<image/host>
-            image:
-              auto:
-                language: go
-                versions:
-                  - 1.12.5
-# e
-#                 name: drydock/u16node
-#                 tag: master
-#                 registry: art
-#                 sourceRepository: docker # required if registry is artifactory
-#                 region: <string> # required if registry is AWS
-#                 options:
-        execution:
-          onExecute:
-            - echo "test4"  
-            - printenv
+#       - name: test4
+#         type: Bash
+#         configuration:
+#           affinityGroup: rpm
+#           priority: 0
+#           timeoutSeconds: 50000
+# #           nodePool: ubuntu_16
+#           chronological: true
+#           environmentVariables:
+#             env1: value1
+#             env2: value2
+# #           integrations:
+# #             - name: dockerHubIntegration
+# #             - name: artifactoryIntegration  
+#           inputSteps:
+#             - name: test3
+# #           inputResources:
+# #             - name: vijay_git
+# #               trigger: true    # default true
+# #           outputResources:
+# #             - name: myOutputResource1  
+#           runtime:       
+#             type: image       #<image/host>
+#             image:
+#               auto:
+#                 language: go
+#                 versions:
+#                   - 1.12.5
+# # e
+# #                 name: drydock/u16node
+# #                 tag: master
+# #                 registry: art
+# #                 sourceRepository: docker # required if registry is artifactory
+# #                 region: <string> # required if registry is AWS
+# #                 options:
+#         execution:
+#           onExecute:
+#             - echo "test4"  
+#             - printenv
