@@ -61,12 +61,14 @@ pipelines:
             - sudo su
             - terraform init
             - pushd $res_repo_vijay_resourcePath
+            - export access_Key="$int_keys_accessKey"	  
+            - export secret_Key="$int_keys_SecretKey"
             - terraform init            
             - ls -la
 #             - terraform plan -var-file="$PWD/keys.env"
             - PWD=$(pwd)
-            - terraform apply -auto-approve -var-file="$PWD/variable.tf"
-            - terraform destroy -auto-approve -var-file="$PWD/variable.tf"
+            - terraform apply -auto-approve -var-file="$PWD/keys.tfvar"
+            - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
             - popd
 #             - pushd $res_repo_vijay_resourcePath
 #             - chmod 777 provision.sh
