@@ -62,7 +62,7 @@ pipelines:
             - terraform init
             - pushd $res_repo_vijay_resourcePath
             - ls -la
-            - terraform plan -var-file="$PWD/keys.env"
+#             - terraform plan -var-file="$PWD/keys.env"
             - PWD=$(pwd)
             - terraform apply -auto-approve -var-file="$PWD/keys.env"
             - terraform destroy -auto-approve -var-file="$PWD/keys.env"
