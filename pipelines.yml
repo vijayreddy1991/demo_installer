@@ -62,10 +62,10 @@ pipelines:
             - terraform init
             - pushd $res_repo_vijay_resourcePath
             - ls -la
-            - terraform plan -var-file="$PWD/keys.tf"
+            - terraform plan -var-file="$PWD/keys.env"
             - PWD=$(pwd)
-            - terraform apply -auto-approve -var-file="$PWD/keys.tf"
-            - terraform destroy -auto-approve -var-file="$PWD/keys.tf"
+            - terraform apply -auto-approve -var-file="$PWD/keys.env"
+            - terraform destroy -auto-approve -var-file="$PWD/keys.env"
             - popd
 #             - pushd $res_repo_vijay_resourcePath
 #             - chmod 777 provision.sh
