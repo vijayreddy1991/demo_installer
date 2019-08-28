@@ -53,17 +53,13 @@ pipelines:
         execution:
           onExecute:
             - echo "test1"  
-#             - echo "$vijay"
-#             - printenv
             - pwd
             - terraform --version
 #             - echo $res_repo_vijay_resourcePath
 #             - pushd $res_repo_vijay_resourcePath
-#             - echo "$int_keys_SecretKey"
-#             - echo "$secretKey"
             - pwd
 #             - ls -la
-#             - terraform init
+            - terraform init
             - pushd $res_repo_vijay_resourcePath
             - chmod 777 provision.sh
             - ./provision.sh
