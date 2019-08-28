@@ -36,8 +36,7 @@ pipelines:
             env1: value1
             env2: value2
           integrations:
-            - name: keys
-            - name: keys1
+            - name: aws_keys
 #             - name: artifactoryIntegration  
           inputResources:
             - name: repo_vijay
