@@ -1,2 +1,2 @@
-access_Key="$int_keys_accessKey"	  
-secret_Key="$int_keys_SecretKey"
+export access_Key="$int_keys_accessKey"	  
+export secret_Key="$int_keys_SecretKey"
