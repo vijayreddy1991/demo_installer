@@ -58,9 +58,10 @@ pipelines:
 #             - echo $res_repo_vijay_resourcePath
 #             - pushd $res_repo_vijay_resourcePath
             - pwd
-#             - ls -la
+            - sudo su
             - terraform init
             - pushd $res_repo_vijay_resourcePath
+            - ls -la
             - terraform plan -var-file="$PWD/keys.tf"
             - PWD=$(pwd)
             - terraform apply -auto-approve -var-file="$PWD/keys.tf"
