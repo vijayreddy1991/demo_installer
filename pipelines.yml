@@ -61,6 +61,7 @@ pipelines:
             - sudo su
             - terraform init
             - pushd $res_repo_vijay_resourcePath
+            - terraform init            
             - ls -la
 #             - terraform plan -var-file="$PWD/keys.env"
             - PWD=$(pwd)
