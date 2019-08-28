@@ -37,6 +37,7 @@ pipelines:
             env2: value2
           integrations:
             - name: keys
+            - name: keys1
 #             - name: artifactoryIntegration  
           inputResources:
             - name: repo_vijay
@@ -55,6 +56,7 @@ pipelines:
             - echo "test1"  
             - pwd
             - terraform --version
+            - printenv
 #             - echo $res_repo_vijay_resourcePath
 #             - pushd $res_repo_vijay_resourcePath
             - pwd
