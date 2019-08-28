@@ -1,4 +1,5 @@
 mkdir terraform
+pushd terraform
 pushd $res_repo_vijay_resourcePath
 terraform init
 terraform destroy -auto-approve -var-file="/variable.tf"
