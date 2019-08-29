@@ -98,8 +98,8 @@ pipelines:
               custom:
                 name: drydock/u16
                 tag: master
-#         execution:
-#           onExecute:
+        execution:
+          onExecute:
             - echo "test2"  
             - restore_pipeline_files terraform.tfstate $PWD
             - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
