@@ -131,7 +131,7 @@ pipelines:
                 tag: master
         execution:
           onExecute:
-            - echod "test3"  
+            - echo "test3"  
             - restore_run_files terraform.tfstate $PWD
             - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
 
