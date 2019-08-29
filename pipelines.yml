@@ -68,7 +68,7 @@ pipelines:
             - PWD=$(pwd)
             - replace_envs $PWD/keys.tfvar
             - terraform apply -auto-approve -var-file="$PWD/keys.tfvar"
-            - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
+            - add_pipeline_files $PWD terraform.tfstate
             - popd
 #             - pushd $res_repo_vijay_resourcePath
 #             - chmod 777 provision.sh
@@ -77,43 +77,35 @@ pipelines:
                 
 #       - name: test2
 #         type: Bash
-#         configuration:
-#           affinityGroup: debain 
-#           priority: 0
-#           timeoutSeconds: 50000
+        configuration:
+          affinityGroup: debain 
+          priority: 0
+          timeoutSeconds: 50000
 # #           nodePool: ubuntu_16
 #           chronological: true
-#           environmentVariables:
-#             env1: value1
-#             env2: value2
-# #           integrations:
-# #             - name: dockerHubIntegration
-# #             - name: artifactoryIntegration  
-#           inputSteps:
-#             - name: test1
-# #           inputResources:
-# #             - name: vijay_git
-# #               trigger: true    # default true
-# #           outputResources:
-# #             - name: myOutputResource1  
-#           runtime:       
-#             type: image       #<image/host>
-#             image:
-#               auto:
-#                 language: go
-#                 versions:
-#                   - 1.12.5
-# #               custom:
-# #                 name: drydock/u16node
-# #                 tag: master
-# #                 registry: art
-# #                 sourceRepository: docker # required if registry is artifactory
-# #                 region: <string> # required if registry is AWS
-# #                 options:
+          environmentVariables:
+            env1: value1
+            env2: value2
+          integrations:
+            - name: aws_keys
+          inputSteps:
+            - name: test1
+          integrations:
+            - name: aws_keys 
+#           inputResources:
+#             - name: repo_vijay
+          runtime:       
+            type: image     #<image/host>
+            image:
+              custom:
+                name: drydock/u16
+                tag: master
 #         execution:
 #           onExecute:
-#             - echo "test2"  
-#             - printenv
+            - echo "test2"  
+            - restore_pipeline_files terraform.tfstate $PWD
+            - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
+
 
 #       - name: test3
 #         type: Bash
