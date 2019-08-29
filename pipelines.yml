@@ -132,8 +132,10 @@ pipelines:
         execution:
           onExecute:
             - echo "test3"  
+            - pushd $res_repo_vijay_resourcePath
             - restore_pipeline_files jfrog_pipeline $PWD/terraform.tfstate
             - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
+            - popd
 
 #       - name: test4
 #         type: Bash
