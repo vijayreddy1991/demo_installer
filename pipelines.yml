@@ -136,6 +136,7 @@ pipelines:
             - pushd $res_repo_vijay_resourcePath
             - echo $PWD
             - terraform init
+            - replace_envs $PWD/keys.tfvar
             - restore_pipeline_files jfrog_pipeline $PWD/terraform.tfstate
             - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
             - popd
