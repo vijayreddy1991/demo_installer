@@ -80,38 +80,36 @@ pipelines:
 #             - ./provision.sh
 #             - popd
 
-#       - name: test2
-#         type: Bash
-#         configuration:
-#           affinityGroup: rpm
-#           priority: 0
-#           timeoutSeconds: 50000
-# #           nodePool: ubuntu_16
-#           chronological: true
-#           environmentVariables:
-#             env1: value1
-#             env2: value2
-# #           integrations:
-# #             - name: dockerHubIntegration
-# #             - name: artifactoryIntegration  
-#           inputSteps:
-#             - name: test1
-# #           inputResources:
-# #             - name: vijay_git
-# #               trigger: true    # default true
-#           runtime:       
-#             type: image     #<image/host>
-#             image:
-#               custom:
-#                 name: drydock/u16
-#                 tag: master
-#         execution:
-#           onExecute:
-#             - echo "Test2"
-#             - printenv
-# #             - ssh ec2-user@
-
       - name: test2
+        type: Bash
+        configuration:
+          affinityGroup: rpm
+          priority: 0
+          timeoutSeconds: 50000
+#           nodePool: ubuntu_16
+          chronological: true
+          environmentVariables:
+            env1: value1
+            env2: value2
+#           integrations:
+#             - name: dockerHubIntegration
+#             - name: artifactoryIntegration  
+          inputSteps:
+            - name: test1
+          runtime:       
+            type: image     #<image/host>
+            image:
+              custom:
+                name: drydock/u16
+                tag: master
+        execution:
+          onExecute:
+            - echo "Test2"
+            - printenv
+            - echo $vijay_ip_address
+            - ssh ec2-user@$vijay_ip_address
+
+      - name: test3
         type: Bash
         configuration:
           affinityGroup: debain 
@@ -125,7 +123,7 @@ pipelines:
           integrations:
             - name: aws_keys
           inputSteps:
-            - name: test1
+            - name: test2
           inputResources:
             - name: repo_vijay
           runtime:       
