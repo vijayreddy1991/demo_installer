@@ -90,8 +90,6 @@ pipelines:
             - name: aws_keys
           inputSteps:
             - name: test1
-          integrations:
-            - name: aws_keys 
 #           inputResources:
 #             - name: repo_vijay
           runtime:       
