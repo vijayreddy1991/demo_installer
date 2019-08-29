@@ -71,6 +71,7 @@ pipelines:
             - terraform apply -auto-approve -var-file="$PWD/keys.tfvar"
             - terraform output vijay_ip
             - ip_address=$(terraform output vijay_ip)
+            - echo "$ip_address"
             - add_pipeline_files $PWD/terraform.tfstate jfrog_pipeline
             - popd
 #             - pushd $res_repo_vijay_resourcePath
