@@ -132,7 +132,7 @@ pipelines:
                 tag: master
         execution:
           onExecute:
-            - echohououui "test3"  
+            - echo "test3"  
             - pushd $res_repo_vijay_resourcePath
             - echo $PWD
             - terraform init
