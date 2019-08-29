@@ -68,7 +68,7 @@ pipelines:
             - PWD=$(pwd)
             - replace_envs $PWD/keys.tfvar
             - terraform apply -auto-approve -var-file="$PWD/keys.tfvar"
-            - add_run_files $PWD terraform.tfstate
+            - add_pipeline_files $PWD terraform.tfstate
             - popd
 #             - pushd $res_repo_vijay_resourcePath
 #             - chmod 777 provision.sh
@@ -132,7 +132,7 @@ pipelines:
         execution:
           onExecute:
             - echo "test3"  
-            - restore_run_files terraform.tfstate $PWD
+            - restore_pipeline_files terraform.tfstate $PWD
             - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
 
 #       - name: test4
