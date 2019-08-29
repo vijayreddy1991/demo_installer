@@ -83,7 +83,7 @@ pipelines:
       - name: test2
         type: Bash
         configuration:
-          affinityGroup: rpm
+          affinityGroup: debain
           priority: 0
           timeoutSeconds: 50000
 #           nodePool: ubuntu_16
