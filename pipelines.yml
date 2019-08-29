@@ -75,38 +75,38 @@ pipelines:
 #             - ./provision.sh
 #             - popd
 
-      - name: test2
-        type: Bash
-        configuration:
-          affinityGroup: rpm
-          priority: 0
-          timeoutSeconds: 50000
-#           nodePool: ubuntu_16
-          chronological: true
-          environmentVariables:
-            env1: value1
-            env2: value2
-#           integrations:
-#             - name: dockerHubIntegration
-#             - name: artifactoryIntegration  
-          inputSteps:
-            - name: test1
-#           inputResources:
-#             - name: vijay_git
-#               trigger: true    # default true
-          runtime:       
-            type: image     #<image/host>
-            image:
-              custom:
-                name: drydock/u16
-                tag: master
-        execution:
-          onExecute:
-            - echo "Test2"
-            - printenv
-#             - ssh ec2-user@
+#       - name: test2
+#         type: Bash
+#         configuration:
+#           affinityGroup: rpm
+#           priority: 0
+#           timeoutSeconds: 50000
+# #           nodePool: ubuntu_16
+#           chronological: true
+#           environmentVariables:
+#             env1: value1
+#             env2: value2
+# #           integrations:
+# #             - name: dockerHubIntegration
+# #             - name: artifactoryIntegration  
+#           inputSteps:
+#             - name: test1
+# #           inputResources:
+# #             - name: vijay_git
+# #               trigger: true    # default true
+#           runtime:       
+#             type: image     #<image/host>
+#             image:
+#               custom:
+#                 name: drydock/u16
+#                 tag: master
+#         execution:
+#           onExecute:
+#             - echo "Test2"
+#             - printenv
+# #             - ssh ec2-user@
 
-      - name: test3
+      - name: test2
         type: Bash
         configuration:
           affinityGroup: debain 
@@ -120,7 +120,7 @@ pipelines:
           integrations:
             - name: aws_keys
           inputSteps:
-            - name: test2
+            - name: test1
 #           inputResources:
 #             - name: repo_vijay
           runtime:       
@@ -131,7 +131,7 @@ pipelines:
                 tag: master
         execution:
           onExecute:
-            - echo "test3"  
+            - echod "test3"  
             - restore_run_files terraform.tfstate $PWD
             - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
 
