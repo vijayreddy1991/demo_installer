@@ -66,6 +66,7 @@ pipelines:
             - ls -la
 #             - terraform plan -var-file="$PWD/keys.tfvar"
             - PWD=$(pwd)
+            - echo PWD=$PWD
             - replace_envs $PWD/keys.tfvar
             - terraform apply -auto-approve -var-file="$PWD/keys.tfvar"
             - add_pipeline_files $PWD/terraform.tfstate jfrog_pipeline
@@ -121,8 +122,8 @@ pipelines:
             - name: aws_keys
           inputSteps:
             - name: test1
-#           inputResources:
-#             - name: repo_vijay
+          inputResources:
+            - name: repo_vijay
           runtime:       
             type: image     #<image/host>
             image:
@@ -133,6 +134,7 @@ pipelines:
           onExecute:
             - echo "test3"  
             - pushd $res_repo_vijay_resourcePath
+            - echo $PWD
             - restore_pipeline_files jfrog_pipeline $PWD/terraform.tfstate
             - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
             - popd
