@@ -68,7 +68,8 @@ pipelines:
             - PWD=$(pwd)
             - replace_envs $PWD/keys.tfvar
             - terraform apply -auto-approve -var-file="$PWD/keys.tfvar"
-            - add_pipeline_files testVijay terraform.tfstate
+            - mkdir testVijay.tfstate
+            - add_pipeline_files testVijay.tfstate terraform.tfstate
             - popd
 #             - pushd $res_repo_vijay_resourcePath
 #             - chmod 777 provision.sh
