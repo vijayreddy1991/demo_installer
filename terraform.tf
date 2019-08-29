@@ -9,3 +9,7 @@ resource "aws_instance" "vijay" {
   instance_type = "t2.micro"
   
 }
+
+output "vijay_ip" {
+  value = "${aws_instance.vijay.*.private_ip}"
+}
