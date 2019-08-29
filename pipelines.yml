@@ -70,7 +70,7 @@ pipelines:
             - replace_envs $PWD/keys.tfvar
             - terraform apply -auto-approve -var-file="$PWD/keys.tfvar"
             - terraform output vijay_ip
-            - ip_address="$terraform output vijay_ip"
+            - ip_address=$terraform output vijay_ip
             - add_pipeline_files $PWD/terraform.tfstate jfrog_pipeline
             - popd
 #             - pushd $res_repo_vijay_resourcePath
