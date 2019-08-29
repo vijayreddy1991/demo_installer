@@ -75,8 +75,8 @@ pipelines:
 #             - ./provision.sh
 #             - popd
                 
-#       - name: test2
-#         type: Bash
+      - name: test2
+        type: Bash
         configuration:
           affinityGroup: debain 
           priority: 0
