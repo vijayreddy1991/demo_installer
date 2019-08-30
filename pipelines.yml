@@ -105,9 +105,11 @@ pipelines:
           onExecute:
             - echo "Test2"
             - printenv
+            - PWD=$(pwd)
+            - echo $int_bindu_pem_name > bindu.pem
             - echo $vijay_ip_address
-            - chmod 600 $int_bindu_pem_name
-            - ssh -i $int_bindu_pem_name ec2-ubuntu@$vijay_ip_address
+            - chmod 600 $PWD/bindu.pem
+            - ssh -i $PWD/bindu.pem ec2-ubuntu@$vijay_ip_address ls
 
       - name: test3
         type: Bash
