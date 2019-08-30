@@ -115,7 +115,7 @@ pipelines:
             - cp "$PWD"/bindu.pem ~/.ssh/
             - cat ~/.ssh/bindu.pem
             - which ssh
-            - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address ls
+            - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address pwd
 
       - name: test3
         type: Bash
