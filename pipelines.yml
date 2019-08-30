@@ -95,6 +95,8 @@ pipelines:
             - name: bindu_pem 
           inputSteps:
             - name: test1
+          inputResources:
+            - name: repo_vijay            
           runtime:       
             type: image     #<image/host>
             image:
