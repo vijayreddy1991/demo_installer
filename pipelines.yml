@@ -106,7 +106,7 @@ pipelines:
             - echo "Test2"
             - printenv
             - PWD=$(pwd)
-            - echo $int_bindu_pem_name > bindu.pem
+            - echo $int_bindu_pem_key > bindu.pem
             - cat $PWD/bindu.pem
             - echo $vijay_ip_address
             - chmod 600 $PWD/bindu.pem
