@@ -105,7 +105,9 @@ pipelines:
           onExecute:
             - echo "Test2"
             - printenv
+            - pushd $res_repo_vijay_resourcePath
             - PWD=$(pwd)
+            - echo $PWD
             - sudo apt-get update
             - echo "$int_bindu_pem_key" > bindu.pem
             - cat $PWD/bindu.pem
