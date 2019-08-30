@@ -114,9 +114,8 @@ pipelines:
             - sudo chmod 600 "$PWD"/bindu.pem
             - cp "$PWD"/bindu.pem ~/.ssh/
             - cat ~/.ssh/bindu.pem
-            - ~/.ssh && ls-la
             - which ssh
-            - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address
+            - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address ls
 
       - name: test3
         type: Bash
