@@ -91,9 +91,8 @@ pipelines:
           environmentVariables:
             env1: value1
             env2: value2
-#           integrations:
-#             - name: dockerHubIntegration
-#             - name: artifactoryIntegration  
+          integrations:
+            - name: bindu_pem 
           inputSteps:
             - name: test1
           runtime:       
