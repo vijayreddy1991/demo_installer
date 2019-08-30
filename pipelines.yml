@@ -106,7 +106,8 @@ pipelines:
             - echo "Test2"
             - printenv
             - echo $vijay_ip_address
-            - ssh ec2-user@$vijay_ip_address
+            - chmod 600 $nt_bindu_pem_name
+            - ssh -i $nt_bindu_pem_name ec2-ubuntu@$vijay_ip_address
 
       - name: test3
         type: Bash
