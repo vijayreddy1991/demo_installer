@@ -119,7 +119,7 @@ pipelines:
             - cp "$PWD"/bindu.pem ~/.ssh/
             - cat ~/.ssh/bindu.pem
             - which ssh
-            - scp -i ~/.ssh/bindu.pem $PWD/pipeline_install.sh ubuntu@$vijay_ip_address:~
+            - scp -i ~/.ssh/bindu.pem $PWD/pipeline_installer.sh ubuntu@$vijay_ip_address:~
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address pwd
             
 
