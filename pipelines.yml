@@ -109,8 +109,9 @@ pipelines:
             - echo "$int_bindu_pem_key" > bindu.pem
             - cat $PWD/bindu.pem
             - echo $vijay_ip_address
-            - chmod 600 $PWD/bindu.pem
-            - ssh -i $PWD/bindu.pem ec2-user@$vijay_ip_address
+            - echo "$PWD"
+            - chmod 600 "$PWD"/bindu.pem
+            - ssh -i "$PWD"/bindu.pem ubuntu@$vijay_ip_address
 
       - name: test3
         type: Bash
