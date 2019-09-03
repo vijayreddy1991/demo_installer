@@ -121,7 +121,6 @@ pipelines:
             - cat ~/.ssh/bindu.pem
             - which ssh
             - scp -i ~/.ssh/bindu.pem $PWD/pipeline_installer.sh ubuntu@$vijay_ip_address:~
-            - scp -i ~/.ssh/bindu.pem $PWD/keys ubuntu@$vijay_ip_address:~
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address ls
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address chmod 777 pipeline_installer.sh
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address ./pipeline_installer.sh
