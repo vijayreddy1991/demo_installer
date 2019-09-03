@@ -94,6 +94,7 @@ pipelines:
           integrations:
             - name: bindu_pem 
             - name: ART_keys
+            - name: art
           inputSteps:
             - name: test1
           inputResources:
@@ -117,7 +118,6 @@ pipelines:
             - echo "$int_bindu_pem_key" > bindu.pem
             - cat $PWD/bindu.pem
             - echo $vijay_ip_address
-            - export int_ART_keys_ART_USERNAMEtest=$int_ART_keys_ART_USERNAME
             - chmod 777 "$PWD"/pipeline_installer.sh
             - echo "$PWD"
             - sudo chmod 600 "$PWD"/bindu.pem
