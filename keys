@@ -1,0 +1,5 @@
+ART_APIKEY="$ART_API_KEY"
+ART_USER_NAME="$ART_USERNAME"
+G_password="$g_password"
+Password="$password"
+User="$user"
