@@ -115,6 +115,7 @@ pipelines:
             - echo "$int_bindu_pem_key" > bindu.pem
             - cat $PWD/bindu.pem
             - echo $vijay_ip_address
+            - chmod 777 "$PWD"/pipeline_installer.sh
             - echo "$PWD"
             - sudo chmod 600 "$PWD"/bindu.pem
             - cp "$PWD"/bindu.pem ~/.ssh/
@@ -122,7 +123,6 @@ pipelines:
             - which ssh
             - scp -i ~/.ssh/bindu.pem $PWD/pipeline_installer.sh ubuntu@$vijay_ip_address:~
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address ls
-            - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address chmod 777 pipeline_installer.sh
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address ./pipeline_installer.sh
             
 
