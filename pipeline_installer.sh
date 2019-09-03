@@ -16,7 +16,7 @@ sudo wget "https://github.com/docker/compose/releases/download/1.24.0/docker-com
 echo "***********************************vijay**********************************"
 sudo chmod +x /usr/local/bin/docker-compose
 echo "***************env****************"
-echo "$int_ART_keys_ART_USERNAME"
+echo "$int_ART_keys_ART_USERNAMEtest"
 echo "$int_ART_keys_ART_API_KEY"
 echo "***********************************vijay**********************************"
 curl -o installer.tar.gz https://entplus.jfrog.io/artifactory/pipelines-installers/installer/pipelines-0.9.1.tar.gz -u"$int_ART_keys_ART_USERNAME":"$int_ART_keys_ART_API_KEY"
