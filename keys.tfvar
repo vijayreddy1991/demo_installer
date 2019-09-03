@@ -1,2 +1,4 @@
 accessKey="$int_aws_keys_accessKeyId"	  
 secretKey="$int_aws_keys_secretAccessKey"
+API_KEY="$int_ART_keys_ART_API_KEY"
+="$int_ART_keys_ART_USERNAME"
