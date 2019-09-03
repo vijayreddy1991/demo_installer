@@ -119,7 +119,6 @@ pipelines:
             - sudo chmod 600 "$PWD"/bindu.pem
             - cp "$PWD"/bindu.pem ~/.ssh/
             - cat ~/.ssh/bindu.pem
-            - replace_envs $PWD/keys
             - which ssh
             - scp -i ~/.ssh/bindu.pem $PWD/pipeline_installer.sh ubuntu@$vijay_ip_address:~
             - scp -i ~/.ssh/bindu.pem $PWD/keys ubuntu@$vijay_ip_address:~
