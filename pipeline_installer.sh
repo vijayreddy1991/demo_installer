@@ -16,8 +16,8 @@ sudo wget "https://github.com/docker/compose/releases/download/1.24.0/docker-com
 echo "***********************************vijay**********************************"
 sudo chmod +x /usr/local/bin/docker-compose
 echo "***********************************vijay**********************************"
-curl -o installer.tar.gz https://entplus.jfrog.io/artifactory/pipelines-installers/installer/pipelines-0.9.1.tar.gz -u$ART_USERNAME:$ART_API_KEY
+curl -o installer.tar.gz https://entplus.jfrog.io/artifactory/pipelines-installers/installer/pipelines-0.9.1.tar.gz -u$ART_USER_NAME:$ART_APIKEY
 echo "***********************************vijay**********************************"
 mkdir -p installer && tar -C installer -xvzf installer.tar.gz
 cd installer
-sudo ./pipelines install --onebox --global-password "$g_password" --rt-url http://mill.jfrog.info:12414/artifactory --rt-username "$user" --rt-password "$password"@1234 --image-registry-url pipelines-docker.jfrog.io --api-url http://$vijay_ip_address:30000
+sudo ./pipelines install --onebox --global-password "$G_password" --rt-url http://mill.jfrog.info:12414/artifactory --rt-username "$User" --rt-password "$Password"@1234 --image-registry-url pipelines-docker.jfrog.io --api-url http://$vijay_ip_address:30000
