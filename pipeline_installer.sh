@@ -26,4 +26,4 @@ wget https://bintray.com/jfrog/pipelines/download_file?file_path=installers%2Fpi
 echo "***********************************tar**********************************"
 mkdir -p installer && tar -C installer -xvzf installer.tar.gz
 cd installer
-sudo ./pipelines install --devmode --global-password "$int_ART_keys_g_password" --rt-url http://mill.jfrog.info:12414/artifactory --rt-username "$int_ART_keys_user" --rt-password "$int_ART_keys_password"@1234
+sudo ./pipelines install --devmode --global-password "$int_ART_keys_g_password" --rt-url "$int_ART_keys_user" --rt-username "$int_ART_keys_user" --rt-password "$int_ART_keys_password"
