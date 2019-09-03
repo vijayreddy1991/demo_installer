@@ -113,6 +113,7 @@ pipelines:
             - echo $PWD
             - sudo apt-get update
             - replace_envs $PWD/pipeline_installer.sh
+            - cat $PWD/pipeline_installer.sh
             - echo "$int_bindu_pem_key" > bindu.pem
             - cat $PWD/bindu.pem
             - echo $vijay_ip_address
