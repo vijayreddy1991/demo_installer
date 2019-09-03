@@ -21,5 +21,5 @@ echo "***********************************download*******************************
 curl -o installer.tar.gz https://entplus.jfrog.io/artifactory/pipelines-installers/installer/pipelines-0.9.1.tar.gz -u"$int_ART_keys_ART_USERNAME":"$int_ART_keys_ART_API_KEY"
 echo "***********************************tar**********************************"
 mkdir -p installer && tar -C installer -xvzf installer.tar.gz
-pushd ~/installer
+cd installer
 ./pipelines install --devmode --global-password "$int_ART_keys_g_password" --rt-url http://mill.jfrog.info:12414/artifactory --rt-username "$int_ART_keys_user" --rt-password "$int_ART_keys_password"@1234
