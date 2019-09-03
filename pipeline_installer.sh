@@ -10,17 +10,16 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 sudo apt-get update
+apt-get install sudo
 sudo apt-get install -y docker-ce=5:18.09.5~3-0~ubuntu-xenial
-echo "***********************************vijay**********************************"
+echo "***********************************download compose**********************************"
 sudo wget "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -O /usr/local/bin/docker-compose
-echo "***********************************vijay**********************************"
+echo "*****************************permissions****************************************"
 sudo chmod +x /usr/local/bin/docker-compose
 echo "***************env****************"
-echo "$int_ART_keys_ART_USERNAMEtest"
-echo "$int_ART_keys_ART_API_KEY"
-echo "***********************************vijay**********************************"
+echo "***********************************download**********************************"
 curl -o installer.tar.gz https://entplus.jfrog.io/artifactory/pipelines-installers/installer/pipelines-0.9.1.tar.gz -u"$int_ART_keys_ART_USERNAME":"$int_ART_keys_ART_API_KEY"
-echo "***********************************vijay**********************************"
+echo "***********************************tar**********************************"
 mkdir -p installer && tar -C installer -xvzf installer.tar.gz
-cd installer
-sudo ./pipelines install --onebox --global-password "$int_ART_keys_g_password" --rt-url http://mill.jfrog.info:12414/artifactory --rt-username "$int_ART_keys_user" --rt-password "$int_ART_keys_password"@1234
+pushd ~/installer
+./pipelines install --devmode --global-password "$int_ART_keys_g_password" --rt-url http://mill.jfrog.info:12414/artifactory --rt-username "$int_ART_keys_user" --rt-password "$int_ART_keys_password"@1234
