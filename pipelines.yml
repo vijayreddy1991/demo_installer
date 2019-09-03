@@ -119,15 +119,16 @@ pipelines:
             - cat $PWD/bindu.pem
             - echo $vijay_ip_address
             - chmod 777 "$PWD"/pipeline_installer.sh
+            - chmod 777 "$PWD"/test.sh
             - echo "$PWD"
             - sudo chmod 600 "$PWD"/bindu.pem
             - cp "$PWD"/bindu.pem ~/.ssh/
             - cat ~/.ssh/bindu.pem
             - which ssh
-            - scp -i ~/.ssh/bindu.pem $PWD/pipeline_installer.sh ubuntu@$vijay_ip_address:~
+            - scp -i ~/.ssh/bindu.pem $PWD/pipeline_installer.sh test.sh ubuntu@$vijay_ip_address:~
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address printenv
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address "sudo ./pipeline_installer.sh"
-            - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address "sudo docker ps"
+            - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address "sudo ./test.sh"
             
 
       - name: test3
