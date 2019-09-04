@@ -15,6 +15,6 @@ sudo docker ps | grep www
 echo "---------------- status of api container-------------"
 sudo docker ps | grep api
 echo "------------------api responce------------"
-curl localhost:30000
+curl localhost:30000 \n
 echo "------------------www responce------------"
 curl localhost:30001
