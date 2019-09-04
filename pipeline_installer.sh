@@ -22,7 +22,6 @@ echo "***************env****************"
 docker --version
 echo "***********************************download**********************************"
 wget https://bintray.com/jfrog/pipelines/download_file?file_path=installers%2Fpipelines-0.9.1.tar.gz -O installer.tar.gz 
-#curl -o installer.tar.gz https://entplus.jfrog.io/artifactory/pipelines-installers/installer/pipelines-0.9.1.tar.gz -u "$int_ART_keys_ART_USERNAME":"$int_ART_keys_ART_API_KEY"
 echo "***********************************tar**********************************"
 mkdir -p installer && tar -C installer -xvzf installer.tar.gz
 cd installer
