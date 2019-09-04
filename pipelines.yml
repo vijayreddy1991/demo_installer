@@ -43,6 +43,10 @@ pipelines:
             - terraform output vijay_ip
             - vijay_ip_address=$(terraform output vijay_ip)
             - echo "$vijay_ip_address"
+            - terraform output bindu_ip
+            - bindu_ip_address=$(terraform output bindu_ip)
+            - echo "$bindu_ip_address"
+            - add_pipeline_variables bindu_ip_address=$bindu_ip_address            
             - add_pipeline_variables vijay_ip_address=$vijay_ip_address
             - add_pipeline_files $PWD/terraform.tfstate jfrog_pipeline
             - popd
@@ -74,7 +78,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - pushd $res_repo_vijay_resourcePath
+            - pushd $res_repo_pipe_resourcePath
             - PWD=$(pwd)
             - echo $PWD
             - replace_envs $PWD/pipeline_installer.sh
@@ -92,7 +96,49 @@ pipelines:
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address ls
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address "sudo ./pipeline_installer.sh"
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address "sudo ./test.sh"
-            
+
+      - name: Run_installation_centos
+        type: Bash
+        configuration:
+          timeoutSeconds: 50000
+          environmentVariables:
+            env1: value1
+            env2: value2
+          integrations:
+            - name: bindu_pem 
+            - name: ART_keys
+            - name: art  
+          inputSteps:
+            - name: Spin_up_AWS_machine
+          inputResources:
+            - name: repo_pipe   
+          runtime:       
+            type: image     #<image/host>
+            image:
+              custom:
+                name: drydock/u16
+                tag: master
+        execution:
+          onExecute:
+            - printenv
+            - pushd $res_repo_pipe_resourcePath
+            - PWD=$(pwd)
+            - echo $PWD
+            - replace_envs $PWD/pipeline_installer.sh
+            - cat $PWD/pipeline_installer.sh
+            - echo "$int_bindu_pem_key" > bindu.pem
+            - cat $PWD/bindu.pem
+            - echo $bindu_ip_address
+            - chmod 777 "$PWD"/pipeline_installer.sh
+            - chmod 777 "$PWD"/test.sh
+            - sudo chmod 600 "$PWD"/bindu.pem
+            - cp "$PWD"/bindu.pem ~/.ssh/
+            - cat ~/.ssh/bindu.pem
+            - which ssh
+            - scp -i ~/.ssh/bindu.pem $PWD/pipeline_installer.sh test.sh centos@$bindu_ip_address:~
+            - ssh -i ~/.ssh/bindu.pem centos@$bindu_ip_address ls
+            - ssh -i ~/.ssh/bindu.pem centos@$bindu_ip_address "sudo ./pipeline_installer.sh"
+            - ssh -i ~/.ssh/bindu.pem centos@$bindu_ip_address "sudo ./test.sh"
 
       - name: Destroy_AWS_machine
         type: Bash
@@ -108,9 +154,9 @@ pipelines:
             - name: aws_keys
           inputSteps:
             - name: Run_installer_ubuntu
-            - name: Run_installer_centos
+            - name: Run_installation_centos
           inputResources:
-            - name: repo_vijay
+            - name: repo_pipe
           runtime:       
             type: image     #<image/host>
             image:
@@ -120,7 +166,7 @@ pipelines:
         execution:
           onExecute:
             - echo "test3"  
-            - pushd $res_repo_vijay_resourcePath
+            - pushd $res_repo_pipe_resourcePath
             - echo $PWD
             - echo "$vijay_ip_address"
             - terraform init
