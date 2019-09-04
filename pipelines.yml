@@ -1,14 +1,14 @@
 resources:
-  - name: repo_vijay
+  - name: repo_pipe
     type: GitRepo
     configuration:
       gitProvider: vijay_github
       path: vijayreddy1991/jfrog
       
 pipelines:
-  - name: jfrog_pipeline
+  - name: demo_installer
     steps:
-      - name: Spin_up_AWS_machine
+      - name: Spin_up_AWS
         type: Bash
         configuration:
           affinityGroup: debain 
@@ -47,7 +47,7 @@ pipelines:
             - add_pipeline_files $PWD/terraform.tfstate jfrog_pipeline
             - popd
 
-      - name: Run_installer
+      - name: Run_installer_ubuntu
         type: Bash
         configuration:
           affinityGroup: debain
@@ -107,7 +107,8 @@ pipelines:
           integrations:
             - name: aws_keys
           inputSteps:
-            - name: Run_installer
+            - name: Run_installer_ubuntu
+            - name: Run_installer_centos
           inputResources:
             - name: repo_vijay
           runtime:       
