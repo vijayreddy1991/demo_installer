@@ -38,6 +38,7 @@ pipelines:
             - ls -la
             - PWD=$(pwd)
             - echo PWD=$PWD
+            - cat terraform.tf
             - replace_envs $PWD/keys.tfvar
             - terraform apply -auto-approve -var-file="$PWD/keys.tfvar"
             - terraform output vijay_ip
