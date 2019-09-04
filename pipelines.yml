@@ -69,7 +69,7 @@ pipelines:
           inputSteps:
             - name: Spin_up_AWS
           inputResources:
-            - name: repo_vijay            
+            - name: repo_pipe            
           runtime:       
             type: image     #<image/host>
             image:
