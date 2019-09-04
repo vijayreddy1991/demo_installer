@@ -4,6 +4,9 @@ resources:
     configuration:
       gitProvider: vijay_github
       path: vijayreddy1991/jfrog
+      branches:
+#         except: <regular expression>
+        only: test     
       
 pipelines:
   - name: demo_installer
