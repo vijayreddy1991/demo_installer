@@ -3,10 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: vijay_github
-      path: vijayreddy1991/jfrog
-      branches:
-#         except: <regular expression>
-        include: test     
+      path: vijayreddy1991/demo_installer
       
 pipelines:
   - name: demo_installer
