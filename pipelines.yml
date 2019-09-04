@@ -8,7 +8,7 @@ resources:
 pipelines:
   - name: jfrog_pipeline
     steps:
-      - name: test1
+      - name: Spin_up_AWS_machine
         type: Bash
         configuration:
           affinityGroup: debain 
@@ -47,7 +47,7 @@ pipelines:
             - add_pipeline_files $PWD/terraform.tfstate jfrog_pipeline
             - popd
 
-      - name: test2
+      - name: Run_installer
         type: Bash
         configuration:
           affinityGroup: debain
@@ -94,7 +94,7 @@ pipelines:
             - ssh -i ~/.ssh/bindu.pem ubuntu@$vijay_ip_address "sudo ./test.sh"
             
 
-      - name: test3
+      - name: Destroy_AWS_machine
         type: Bash
         configuration:
           affinityGroup: debain 
