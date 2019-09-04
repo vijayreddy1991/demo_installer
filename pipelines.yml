@@ -4,22 +4,6 @@ resources:
     configuration:
       gitProvider: vijay_github
       path: vijayreddy1991/jfrog
-#       files:  # optional
-#         include: pipelines.yml
-#         exclude: readme
-      branches:  # optional
-        include: debain
-#         exclude: git
-#       tags:  # optional
-#         include: 
-#         exclude: 
-#       buildOn:  # optional
-#         commit: true
-#          pullRequestCreate: true
-#          pullRequestClose: false
-#          releaseCreate: false
-#          tagCreate: false
-#       shallowDepth: 10  # optional 
       
 pipelines:
   - name: jfrog_pipeline
@@ -31,13 +15,11 @@ pipelines:
           priority: 0
           timeoutSeconds: 50000
 #           nodePool: ubuntu_16
-#           chronological: true
           environmentVariables:
             env1: value1
             env2: value2
           integrations:
             - name: aws_keys
-#             - name: artifactoryIntegration  
           inputResources:
             - name: repo_vijay
           runtime:       
@@ -46,25 +28,16 @@ pipelines:
               custom:
                 name: drydock/u16
                 tag: master
-#                 registry: art
-#                 sourceRepository: docker # required if registry is artifactory
-#                 region: <string> # required if registry is AWS
-#                 options:
         execution:
-          onExecute:
-            - echo "test1"  
+          onExecute: 
             - pwd
             - terraform --version
             - printenv
-#             - echo $res_repo_vijay_resourcePath
-#             - pushd $res_repo_vijay_resourcePath
             - pwd
-            - sudo su
             - terraform init
             - pushd $res_repo_vijay_resourcePath
             - terraform init            
             - ls -la
-#             - terraform plan -var-file="$PWD/keys.tfvar"
             - PWD=$(pwd)
             - echo PWD=$PWD
             - replace_envs $PWD/keys.tfvar
@@ -75,10 +48,6 @@ pipelines:
             - add_pipeline_variables vijay_ip_address=$vijay_ip_address
             - add_pipeline_files $PWD/terraform.tfstate jfrog_pipeline
             - popd
-#             - pushd $res_repo_vijay_resourcePath
-#             - chmod 777 provision.sh
-#             - ./provision.sh
-#             - popd
 
       - name: test2
         type: Bash
@@ -87,7 +56,6 @@ pipelines:
           priority: 0
           timeoutSeconds: 50000
 #           nodePool: ubuntu_16
-          chronological: true
           environmentVariables:
             env1: value1
             env2: value2
@@ -107,12 +75,10 @@ pipelines:
                 tag: master
         execution:
           onExecute:
-            - echo "Test2"
             - printenv
             - pushd $res_repo_vijay_resourcePath
             - PWD=$(pwd)
             - echo $PWD
-            - sudo apt-get update
             - replace_envs $PWD/pipeline_installer.sh
             - cat $PWD/pipeline_installer.sh
             - echo "$int_bindu_pem_key" > bindu.pem
@@ -120,7 +86,6 @@ pipelines:
             - echo $vijay_ip_address
             - chmod 777 "$PWD"/pipeline_installer.sh
             - chmod 777 "$PWD"/test.sh
-            - echo "$PWD"
             - sudo chmod 600 "$PWD"/bindu.pem
             - cp "$PWD"/bindu.pem ~/.ssh/
             - cat ~/.ssh/bindu.pem
@@ -137,8 +102,7 @@ pipelines:
           affinityGroup: debain 
           priority: 0
           timeoutSeconds: 50000
-# #           nodePool: ubuntu_16
-#           chronological: true
+#           nodePool: ubuntu_16
           environmentVariables:
             env1: value1
             env2: value2
@@ -166,42 +130,4 @@ pipelines:
             - terraform destroy -auto-approve -var-file="$PWD/keys.tfvar"
             - popd
 
-#       - name: test4
-#         type: Bash
-#         configuration:
-#           affinityGroup: rpm
-#           priority: 0
-#           timeoutSeconds: 50000
-# #           nodePool: ubuntu_16
-#           chronological: true
-#           environmentVariables:
-#             env1: value1
-#             env2: value2
-# #           integrations:
-# #             - name: dockerHubIntegration
-# #             - name: artifactoryIntegration  
-#           inputSteps:
-#             - name: test3
-# #           inputResources:
-# #             - name: vijay_git
-# #               trigger: true    # default true
-# #           outputResources:
-# #             - name: myOutputResource1  
-#           runtime:       
-#             type: image       #<image/host>
-#             image:
-#               auto:
-#                 language: go
-#                 versions:
-#                   - 1.12.5
-# # e
-# #                 name: drydock/u16node
-# #                 tag: master
-# #                 registry: art
-# #                 sourceRepository: docker # required if registry is artifactory
-# #                 region: <string> # required if registry is AWS
-# #                 options:
-#         execution:
-#           onExecute:
-#             - echo "test4"  
-#             - printenv
+
