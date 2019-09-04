@@ -33,8 +33,6 @@ pipelines:
             - pwd
             - terraform --version
             - printenv
-            - pwd
-            - terraform init
             - pushd $res_repo_vijay_resourcePath
             - terraform init            
             - ls -la
