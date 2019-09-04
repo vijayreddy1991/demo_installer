@@ -6,7 +6,7 @@ resources:
       path: vijayreddy1991/jfrog
       branches:
 #         except: <regular expression>
-        only: test     
+        include: test     
       
 pipelines:
   - name: demo_installer
