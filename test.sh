@@ -1,20 +1,23 @@
-echo "--------------------list of docker containers-----------"
+#!/bin/bash -e
+
+echo "============ list of docker containers ============"
 sudo docker ps 
-echo "---------------- status of nexec container-------------"
+echo "============ checking nexec container is up ============"
 sudo docker ps | grep nexec
-echo "---------------- status of cron container-------------"
+echo "============ checking cron container is up============"
 sudo docker ps | grep cron
-echo "---------------- status of steptrigger container-------------"
+echo "============ checking steptrigger containeris up ============"
 sudo docker ps | grep steptrigger
-echo "---------------- status of runtrigger container-------------"
+echo "============ checking runtrigger container is up ============"
 sudo docker ps | grep runtrigger
-echo "---------------- status of pipelinesync container-------------"
+echo "============ checking pipelinesync container is up ============"
 sudo docker ps | grep pipelinesync
-echo "---------------- status of www container-------------"
+echo "============ checking www container is up ============"
 sudo docker ps | grep www
-echo "---------------- status of api container-------------"
+echo "============ checking api container is up ============"
 sudo docker ps | grep api
-echo "------------------api responce------------"
-curl localhost:30000 \n
-echo "------------------www responce------------"
+echo "============ checking api response ============"
+curl localhost:30000
+echo ""
+echo "============ checking www response ============"
 curl localhost:30001
