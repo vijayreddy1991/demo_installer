@@ -142,7 +142,7 @@ pipelines:
             - ssh -i ~/.ssh/bindu.pem centos@$bindu_ip_address "sudo ./pipeline_centos.sh"
             - ssh -i ~/.ssh/bindu.pem centos@$bindu_ip_address "sudo ./test.sh"
 
-      - name: Destroy_AWS_machine
+      - name: Destroy_AWS_machines
         type: Bash
         configuration:
           affinityGroup: debain 
