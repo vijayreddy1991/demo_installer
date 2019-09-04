@@ -23,6 +23,9 @@ resource "aws_instance" "bindu" {
 
 output "vijay_ip" {
   value = "${aws_instance.vijay.*.public_ip}"
+}
+
+output "bindu_ip" {
   value = "${aws_instance.bindu.*.public_ip}"
 }
 
