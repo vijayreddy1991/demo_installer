@@ -62,7 +62,7 @@ pipelines:
             - name: ART_keys
             - name: art
           inputSteps:
-            - name: test1
+            - name: Spin_up_AWS_machine
           inputResources:
             - name: repo_vijay            
           runtime:       
@@ -107,7 +107,7 @@ pipelines:
           integrations:
             - name: aws_keys
           inputSteps:
-            - name: test2
+            - name: Run_installer
           inputResources:
             - name: repo_vijay
           runtime:       
