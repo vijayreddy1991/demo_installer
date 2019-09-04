@@ -21,7 +21,7 @@ pipelines:
           integrations:
             - name: aws_keys
           inputResources:
-            - name: repo_vijay
+            - name: repo_pipe
           runtime:       
             type: image     #<image/host>
             image:
@@ -33,7 +33,7 @@ pipelines:
             - pwd
             - terraform --version
             - printenv
-            - pushd $res_repo_vijay_resourcePath
+            - pushd $res_repo_pipe_resourcePath
             - terraform init            
             - ls -la
             - PWD=$(pwd)
