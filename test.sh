@@ -2,6 +2,7 @@
 
 echo "============ list of docker containers ============"
 sudo docker ps 
+sudo docker rm -f \cron
 echo "============ checking nexec container is up ============"
 sudo docker ps | grep nexec
 echo "============ checking cron container is up============"
