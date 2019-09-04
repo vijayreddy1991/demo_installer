@@ -66,7 +66,7 @@ pipelines:
             - name: ART_keys
             - name: art
           inputSteps:
-            - name: Spin_up_AWS_machine
+            - name: Spin_up_AWS
           inputResources:
             - name: repo_vijay            
           runtime:       
@@ -111,7 +111,7 @@ pipelines:
             - name: ART_keys
             - name: art  
           inputSteps:
-            - name: Spin_up_AWS_machine
+            - name: Spin_up_AWS
           inputResources:
             - name: repo_pipe   
           runtime:       
