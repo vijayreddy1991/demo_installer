@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+echo "============ docker info ============"
+sudo docker info
 echo "============ list of docker containers ============"
 sudo docker ps 
 # sudo docker rm -f cron
